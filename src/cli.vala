@@ -59,27 +59,27 @@ namespace Pamac {
 			}
 			if (help) {
 				if (args.length == 2) {
-					if (args[1] == "search") {
+					if (args[1] == "search" || args[1] == "s") {
 						display_search_help ();
 					} else if (args[1] == "info") {
 						display_info_help ();
-					} else if (args[1] == "list") {
+					} else if (args[1] == "list" || args[1] == "ls") {
 						display_list_help ();
 					} else if (args[1] == "clone") {
 						display_clone_help ();
-					} else if (args[1] == "build") {
+					} else if (args[1] == "build" || args[1] == "b") {
 						display_build_help ();
-					} else if (args[1] == "install") {
+					} else if (args[1] == "install" || args[1] == "i") {
 						display_install_help ();
-					} else if (args[1] == "reinstall") {
+					} else if (args[1] == "reinstall" || args[1] == "rei") {
 						display_reinstall_help ();
-					} else if (args[1] == "remove") {
+					} else if (args[1] == "remove" || args[1] == "r") {
 						display_remove_help ();
-					} else if (args[1] == "checkupdates") {
+					} else if (args[1] == "checkupdates" || args[1] == "cu") {
 						display_checkupdates_help ();
-					} else if (args[1] == "upgrade" || args[2] == "update") {
+					} else if (args[1] == "upgrade" || args[1] == "u" || args[2] == "update") {
 						display_upgrade_help ();
-					} else if (args[1] == "clean") {
+					} else if (args[1] == "clean" || args[1] == "c") {
 						display_clean_help ();
 					} else {
 						display_help ();
@@ -93,7 +93,7 @@ namespace Pamac {
 				display_version ();
 				return;
 			}
-			if (args[1] == "search") {
+			if (args[1] == "search" || args[1] == "s") {
 				if (args.length > 2) {
 					bool installed = false;
 					bool repos = false;
@@ -206,7 +206,7 @@ namespace Pamac {
 				} else {
 					display_info_help ();
 				}
-			} else if (args[1] == "list") {
+			} else if (args[1] == "list" || args[1] == "ls") {
 				if (args.length > 2) {
 					bool installed = false;
 					bool explicitly_installed = false;
@@ -338,7 +338,7 @@ namespace Pamac {
 				} else {
 					display_clone_help ();
 				}
-			} else if (args[1] == "build") {
+			} else if (args[1] == "build" || args[1] == "b") {
 				bool no_clone = false;
 				bool no_confirm = false;
 				bool keep = false;
@@ -443,7 +443,7 @@ namespace Pamac {
 					return;
 				}
 				build_pkgs (args[2:args.length]);
-			} else if (args[1] == "install") {
+			} else if (args[1] == "install" || args[1] == "i") {
 				if (args.length > 2) {
 					bool no_confirm = false;
 					bool upgrade = false;
@@ -519,7 +519,7 @@ namespace Pamac {
 				} else {
 					display_install_help ();
 				}
-			} else if (args[1] == "reinstall") {
+			} else if (args[1] == "reinstall" || args[1] == "rei") {
 				if (args.length > 2) {
 					bool no_confirm = false;
 					bool download_only = false;
@@ -570,7 +570,7 @@ namespace Pamac {
 				} else {
 					display_reinstall_help ();
 				}
-			} else if (args[1] == "remove") {
+			} else if (args[1] == "remove" || args[1] == "r") {
 				if (args.length > 2) {
 					bool no_confirm = false;
 					bool no_save = false;
@@ -637,7 +637,7 @@ namespace Pamac {
 				} else {
 					display_remove_help ();
 				}
-			} else if (args[1] == "checkupdates") {
+			} else if (args[1] == "checkupdates" || args[1] == "cu") {
 				bool quiet = false;
 				bool aur = false;
 				bool no_aur = false;
@@ -712,7 +712,7 @@ namespace Pamac {
 					}
 				}
 				checkupdates (quiet, refresh_tmp_files_dbs, download_updates, use_timestamp);
-			} else if (args[1] == "update" || args[1] == "upgrade") {
+			} else if (args[1] == "update" || args[1] == "upgrade" || args[1] == "u") {
 				bool aur = false;
 				bool no_aur = false;
 				bool devel = false;
@@ -816,7 +816,7 @@ namespace Pamac {
 					transaction.no_confirm = true;
 				}
 				run_sysupgrade (force_refresh, download_only);
-			} else if (args[1] == "clean") {
+			} else if (args[1] == "clean" || args[1] == "c") {
 				bool verbose = false;
 				bool build_files = false;
 				bool uninstalled = false;
